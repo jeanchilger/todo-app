@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from 'prop-types';
 
-
-import AddTask from "./AddTask";
+import NewTaskModalForm from "./NewTaskModalForm";
 import Task from "./Task";
 
 import Container from "@material-ui/core/Container";
@@ -13,7 +12,11 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import Theme from "../Theme";
 
+
+
 const cardTheme = createMuiTheme({
+    ...Theme.colorTheme,
+
     overrides: {
         MuiCard: {
             root: {
@@ -35,16 +38,12 @@ const cardTheme = createMuiTheme({
                 maxHeight: "20rem",
             }
         },
-
-        MuiTypography: {
-            colorPrimary: {
-                color: Theme.colors.primary,
-            }
-        }
     }
 });
 
 const addTaskTheme = createMuiTheme({
+    ...Theme.colorTheme,
+
     overrides: {
         MuiCard: {
             root: {
@@ -62,20 +61,16 @@ const addTaskTheme = createMuiTheme({
             }
         },
 
-        MuiTypography: {
-            colorPrimary: {
-                color: Theme.colors.primary,
-            }
-        },
-
         MuiAvatar: {
             colorDefault: {
                 backgroundColor: Theme.colors.primary,
                 color: Theme.colors.secondaryDark,
             }
-        }
+        },
     }
 });
+
+
 
 class Board extends React.Component {
 
@@ -121,7 +116,7 @@ class Board extends React.Component {
                             theme={addTaskTheme}
                         >
 
-                                <AddTask />
+                            <NewTaskModalForm />
                         </ThemeProvider>
                     </Grid>
 
@@ -133,7 +128,6 @@ class Board extends React.Component {
 
                 </Grid>
             </Container>
-
 
         );
     }

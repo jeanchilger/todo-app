@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import Avatar from "@material-ui/core/Avatar";
 import Card from "@material-ui/core/Card";
@@ -9,14 +9,20 @@ import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 
-
-import AddIcon from '@material-ui/icons/Add';
+import AddIcon from "@material-ui/icons/Add";
 
 class AddTask extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <Card>
-                <CardActionArea>
+                <CardActionArea
+                    onClick={this.props.handleClick}
+                    disableRipple
+                >
                     <CardContent>
                         <Grid
                             container

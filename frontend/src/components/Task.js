@@ -29,9 +29,7 @@ class Task extends React.Component {
 
                 <CardContent>
 
-                    <Typography
-                        color="miau"
-                    >
+                    <Typography>
                         { this.props.description }
                     </Typography>
 
